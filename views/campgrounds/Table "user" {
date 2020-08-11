@@ -1,0 +1,77 @@
+Table "user" {
+  "id" integer [pk, not null]
+  "user_id" varchar(30) [not null]
+  "username" varchar(30) [not null]
+  "password" varchar(30) [not null]
+  "email" varchar(30) [not null]
+  "user_role" varchar(30) [not null]
+  note: "monitor" "admin" ...
+}
+
+Table "participant" {
+  "id" integer [pk, not null]
+  "participant_id" varchar(30) [not null]
+  "cohort_date" datetime [not null]
+  "display_name" varchar(30) [not null]
+  "seed_status" integer [not null]
+  "gender" varchar(30) [not null]
+  "age" varchar(30) [not null]
+  "region_us" varchar(30) [not null]
+  "volunteer_rounds_list" text [not null]
+  "volunteer_times" integer [not null]
+  "number_of_completed_round" integer [not null]
+  "team_list" text [not null]
+  "kill_status" integer [not null]
+  "total_regular_bonus" decimal [not null]
+  "total_seed_bonus" decimal [not null]
+}
+
+Table "monitor" {
+  "id" integer [pk, not null]
+  "cohort_date_list" text [not null]
+}
+
+Table "round" {
+  "id" integer [pk, not null]
+  "round_id" varchar(30) [not null]
+  "cohort_date" datetime [not null]
+  "team_id" varchar(30) [not null]
+  "volunteer_id" varchar(30) [not null]
+  "kill_status" integer [not null]
+  "number_msg" integer [not null]
+  "msg_text" text [not null]
+  "total_bonus" decimal [not null]
+}
+
+Table "team" {
+  "id" integer [pk, not null]
+  "team_id" varchar(30) [not null]
+  "cohort_date" datetime [not null]
+  "participant_id_list" text [not null]
+  "round_id_list" text [not null]
+  "shuffle_number" integer [not null]
+  "seed_participant_id" integer [not null]
+}
+
+Table "shuffle" {
+  "id" integer [pk, not null]
+  "cohort_date" datetime [not null]
+  "shuffle_number" integer [not null]
+  "team_id_list" text [not null]
+}
+
+Table "cohort" {
+  "id" integer [pk, not null]
+  "cohort_date" datetime [not null]
+  "team_id_list" text [not null]
+  "centrality" decimal [not null]
+  "density" decimal [not null]
+}
+
+Table "condition" {
+  "id" integer [pk, not null]
+  "condition_status" varchar(30) [not null]
+  "cohort_id_list" text [not null]
+}
+
+https://dbdiagram.io/d/5eec40be9ea313663b3ac5e4

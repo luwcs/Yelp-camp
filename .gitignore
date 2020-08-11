@@ -1,3 +1,10 @@
+seeds.js
+*.env
+node_modules/
+
+
+
+
 # Logs
 logs
 *.log
@@ -102,3 +109,5 @@ dist
 
 # TernJS port file
 .tern-port
+
+
